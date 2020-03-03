@@ -14,5 +14,17 @@ public class AnalyticsCounter {
 		ISymptomWriter symptomWriter = new WriteSymptomDataToFile("result.out");
 		Map<String, Integer> symptomMap = new TreeMap<>();
 
+		//loop through the ArrayList in order to detect symptoms's duplicate by counting their occurrences.
+        for (String symptom : symptoms) {
+            String symptomLowerCase = symptom.toLowerCase();
+
+            if (symptomMap.containsKey(symptomLowerCase)) {
+                int count = symptomMap.get(symptomLowerCase);
+                count++;
+                symptomMap.put(symptomLowerCase, count);
+            } else {
+                symptomMap.put(symptomLowerCase, 1);
+            }
+        }
 	}
 }
