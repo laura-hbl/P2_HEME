@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Counting symptoms's occurrences from the raw list.Then add to a TreeMap for a alphabetically sorting.
+ * Symptoms as key and their occurrences as values.
+ */
 public class AnalyticsCounter {
 	
 	public static void main(String args[])  {

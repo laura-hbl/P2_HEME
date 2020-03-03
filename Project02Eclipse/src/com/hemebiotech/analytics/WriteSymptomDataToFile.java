@@ -1,22 +1,31 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Map;
 
+/**
+ * Writes symptoms data and their occurrences to a new generated file.
+ *
+ * @see ISymptomWriter
+ */
 public class WriteSymptomDataToFile implements ISymptomWriter {
 
-    private String filepath;
+     private String filepath;
 
     /**
-     * @param filepath a full or partial path to file with symptom strings in it, one per line
+     * Constructor of class WriteSymptomDataToFile, initialize filepath.
+     *
+     * @param filepath a full or partial path to file with symptom strings in it, one per line.
      */
-    public WriteSymptomDataToFile(String filepath) {
+     WriteSymptomDataToFile(String filepath) {
         this.filepath = filepath;
     }
 
+    /**
+     * Write symptoms as well as the number of their occurrences to a new file, one per line.
+     *
+     * @param sortedSymptoms symptoms mapped to their number of occurrences.
+     */
     public void writeSymptoms(Map<String, Integer> sortedSymptoms) {
         if (filepath != null) {
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filepath))) {
