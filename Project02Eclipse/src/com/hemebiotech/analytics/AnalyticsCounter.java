@@ -26,5 +26,7 @@ public class AnalyticsCounter {
                 symptomMap.put(symptomLowerCase, 1);
             }
         }
+
+        symptomWriter.writeSymptoms(symptomMap);
 	}
 }
